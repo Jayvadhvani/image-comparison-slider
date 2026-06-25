@@ -1,0 +1,204 @@
+<!DOCTYPE html><html lang="en"><head>
+  
+  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Comparison Slider</title>
+    <style>
+        body { margin: 0; padding: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; background-color: #111; font-family: 'Inter', sans-serif;}
+        .comparison-slider {
+          position: relative;
+          width: 100%;
+          max-width: 800px;
+          height: 500px;
+          overflow: hidden;
+          border-radius: 15px;
+          box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+          user-select: none;
+        }
+        .comparison-slider img {
+          display: block;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          pointer-events: none;
+        }
+        .comparison-overlay {
+          position: absolute;
+          top: 0; left: 0;
+          width: 50%;
+          height: 100%;
+          overflow: hidden;
+        }
+        .comparison-overlay img {
+          width: 800px;
+          height: 100%;
+        }
+        .comparison-handle {
+          position: absolute;
+          top: 0;
+          left: 50%;
+          width: 40px;
+          height: 100%;
+          transform: translateX(-50%);
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          cursor: ew-resize;
+          z-index: 10;
+        }
+        .handle-line {
+          position: absolute;
+          top: 0; bottom: 0;
+          width: 4px;
+          background-color: white;
+          box-shadow: 0 0 10px rgba(0,0,0,0.5);
+        }
+        .handle-button {
+          position: relative;
+          width: 50px;
+          height: 50px;
+          background-color: white;
+          border-radius: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          box-shadow: 0 0 15px rgba(0,0,0,0.5);
+          color: #333;
+          gap: -5px;
+        }
+        .handle-button svg { width: 18px; height: 18px; }
+        @media (max-width: 800px) {
+          .comparison-slider { height: 350px; border-radius: 0; }
+          .comparison-overlay img { width: 100vw; }
+        }
+    </style>
+
+            <meta name="description" content="A beautiful component imported via Developer Studio AI.">
+            <meta name="robots" content="index, follow">
+            <meta property="og:title" content="Image Comparison Slider">
+            <meta property="og:description" content="A beautiful component imported via Developer Studio AI.">
+            <meta property="og:image" content="https://codescompiler.com/images/posts/before-after-image-comparison-slider.png">
+            <meta name="twitter:card" content="summary_large_image">
+            <meta name="twitter:title" content="Image Comparison Slider">
+            <meta name="twitter:description" content="A beautiful component imported via Developer Studio AI.">
+            <meta name="twitter:image" content="https://codescompiler.com/images/posts/before-after-image-comparison-slider.png">
+          </head>
+<body>
+
+<!-- ── CODESCOMPILER DEMO HEADER ── -->
+<style>
+  #cc-demo-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+    height: 48px;
+    background: #1a1b26;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    color: white;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999999;
+  }
+  #cc-demo-header a { text-decoration: none; color: white; }
+  .cc-logo { font-size: 14px; font-weight: 900; }
+  .cc-logo span { color: #04aa6d; }
+  .cc-sep { width: 1px; height: 20px; background: rgba(255,255,255,0.12); margin: 0 12px; }
+  .cc-title { font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.65); flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .cc-actions { display: flex; gap: 8px; }
+  .cc-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 6px 12px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+    color: rgba(255,255,255,0.7);
+  }
+  .cc-btn:hover { background: rgba(255,255,255,0.15); color: white; }
+  .cc-btn svg { width: 14px; height: 14px; }
+  @media (max-width: 600px) {
+    .cc-title { display: none; }
+    .cc-btn span { display: none; }
+  }
+</style>
+<header id="cc-demo-header">
+  <div style="display: flex; align-items: center; overflow: hidden;">
+    <a href="https://codescompiler.com" class="cc-logo" target="_blank" rel="dofollow"><span>Codes</span>Compiler</a>
+    <div class="cc-sep"></div>
+    <h1 class="cc-title" title="Image Comparison Slider" style="margin: 0; font-size: 13px; font-weight: 600;">📺 Image Comparison Slider</h1>
+  </div>
+  <div class="cc-actions">
+    <a href="https://codescompiler.com/blog/css-tug-of-war-images" class="cc-btn" target="_blank" rel="dofollow" title="Read the full post">
+      <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path></svg>
+      <span>Back to Post</span>
+    </a>
+    <a href="index.html" class="cc-btn" target="_blank" download="css-tug-of-war-images.html" title="Download source file">
+      <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+      <span>Download</span>
+    </a>
+    <button onclick="document.getElementById('cc-demo-header').style.display='none'" class="cc-btn" title="Hide header for fullscreen view">
+      <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l5-5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"></path></svg>
+      <span>Fullscreen</span>
+    </button>
+  </div>
+</header>
+<!-- ================================== -->
+
+    <div class="comparison-slider">
+      <img src="https://images.unsplash.com/photo-1542224566-6e85f2e6772f?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Before">
+      <div class="comparison-overlay" id="overlay">
+        <img src="https://images.unsplash.com/photo-1542224566-6e85f2e6772f?auto=format&amp;fit=crop&amp;w=800&amp;q=80&amp;sat=-100" alt="After (Grayscale)">
+      </div>
+      <div class="comparison-handle" id="handle">
+        <div class="handle-line"></div>
+        <div class="handle-button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </div>
+      </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const slider = document.querySelector('.comparison-slider');
+            const overlay = document.getElementById('overlay');
+            const handle = document.getElementById('handle');
+            if(!slider || !overlay || !handle) return;
+
+            let isDragging = false;
+
+            slider.addEventListener('mousedown', (e) => { isDragging = true; updateSlider(e); });
+            window.addEventListener('mouseup', () => { isDragging = false; });
+            window.addEventListener('mousemove', (e) => { if (isDragging) updateSlider(e); });
+
+            slider.addEventListener('touchstart', (e) => { isDragging = true; updateSlider(e.touches[0]); });
+            window.addEventListener('touchend', () => { isDragging = false; });
+            window.addEventListener('touchmove', (e) => { if (isDragging) updateSlider(e.touches[0]); });
+
+            function updateSlider(e) {
+                const sliderRect = slider.getBoundingClientRect();
+                let x = e.clientX - sliderRect.left;
+                
+                if (x < 0) x = 0;
+                if (x > sliderRect.width) x = sliderRect.width;
+
+                overlay.style.width = `${x}px`;
+                handle.style.left = `${x}px`;
+            }
+        });
+    </script>
+
+
+</body></html>
